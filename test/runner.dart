@@ -1,10 +1,7 @@
-// @dart=2.9
-
 import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hottie/hottie.dart';
 import 'package:logging/logging.dart' as l;
 
 import 'multi_sliver_test.dart';
@@ -22,13 +19,7 @@ Future<void> main() async {
   final logger = l.Logger('runner');
   log('test', name: 'runner');
   logger.finest('ola');
-  runApp(
-    TestRunner(main: testAll, child: Container()),
-  );
 }
-
-@pragma('vm:entry-point')
-void hottie() => hottieInner();
 
 void testAll() {
   testWidgets('hottie works', (tester) async {

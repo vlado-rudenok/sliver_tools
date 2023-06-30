@@ -49,8 +49,9 @@ void crossAxisConstrainedTests() {
         windowSize = const Size(200, 400);
       });
       testWidgets('It sizes sliver to available space', (tester) async {
-        tester.binding.window.physicalSizeTestValue = windowSize;
-        tester.binding.window.devicePixelRatioTestValue = 1;
+        tester.view.physicalSize = windowSize;
+        tester.view.devicePixelRatio = 1;
+
         await tester.pumpWidget(sut);
         await tester.pumpAndSettle();
 
@@ -69,8 +70,8 @@ void crossAxisConstrainedTests() {
       });
 
       testWidgets('It sizes sliver to max extent', (tester) async {
-        tester.binding.window.physicalSizeTestValue = windowSize;
-        tester.binding.window.devicePixelRatioTestValue = 1;
+        tester.view.physicalSize = windowSize;
+        tester.view.devicePixelRatio = 1;
         await tester.pumpWidget(sut);
         await tester.pumpAndSettle();
 
@@ -81,8 +82,8 @@ void crossAxisConstrainedTests() {
       });
       testWidgets('it aligns correctly using the alignment parameter',
           (tester) async {
-        tester.binding.window.physicalSizeTestValue = windowSize;
-        tester.binding.window.devicePixelRatioTestValue = 1;
+        tester.view.physicalSize = windowSize;
+        tester.view.devicePixelRatio = 1;
         await tester.pumpWidget(_createSut(maxCrossAxisExtent));
 
         final renderObject =
